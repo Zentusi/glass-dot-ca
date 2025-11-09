@@ -1,0 +1,41 @@
+{
+  "name": "zentusi-art-glass",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'No build needed'"
+  }
+}
+```
+
+## Cloudflare Pages Settings:
+
+When connecting your repo, use these exact settings:
+
+- **Framework preset:** `None`
+- **Build command:** (leave completely empty OR use `echo 'No build'`)
+- **Build output directory:** `/` 
+- **Root directory:** (leave as default `/`)
+
+## If it's still failing:
+
+**Option 1 - Skip the build entirely:**
+1. Go to your Cloudflare Pages project
+2. Settings → Builds & deployments
+3. Under "Build configuration", click Edit
+4. **Build command:** Leave empty or use `:` (colon does nothing in shell)
+5. **Build output directory:** `/`
+6. Save and retry deployment
+
+**Option 2 - Use direct upload instead:**
+Instead of connecting to GitHub, try:
+1. Cloudflare Pages → Create a project
+2. Choose "Direct Upload"
+3. Upload just your `index.html` file
+4. Done!
+
+## Your repo should contain:
+```
+zentusi-art-glass/
+├── index.html
+├── .nojekyll (optional, empty file)
+└── package.json (optional, for build command)
